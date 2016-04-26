@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyExpenses", "DailyExpenses\DailyExpenses.csproj", "{9BDFF0A6-573D-4258-BDCF-E32688137A7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{68D515EB-5166-488C-8C33-37BA2C4C76CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BDFF0A6-573D-4258-BDCF-E32688137A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BDFF0A6-573D-4258-BDCF-E32688137A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BDFF0A6-573D-4258-BDCF-E32688137A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BDFF0A6-573D-4258-BDCF-E32688137A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68D515EB-5166-488C-8C33-37BA2C4C76CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68D515EB-5166-488C-8C33-37BA2C4C76CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68D515EB-5166-488C-8C33-37BA2C4C76CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68D515EB-5166-488C-8C33-37BA2C4C76CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

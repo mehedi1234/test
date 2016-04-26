@@ -1,0 +1,8 @@
+C:\Mehedi Personal\Study  Material\PRACTICE\DailyExpenses\Service\bin\Debug\Service.dll.config
+C:\Mehedi Personal\Study  Material\PRACTICE\DailyExpenses\Service\bin\Debug\Service.dll
+C:\Mehedi Personal\Study  Material\PRACTICE\DailyExpenses\Service\bin\Debug\Service.pdb
+C:\Mehedi Personal\Study  Material\PRACTICE\DailyExpenses\Service\bin\Debug\EntityFramework.dll
+C:\Mehedi Personal\Study  Material\PRACTICE\DailyExpenses\Service\bin\Debug\EntityFramework.xml
+C:\Mehedi Personal\Study  Material\PRACTICE\DailyExpenses\Service\obj\Debug\Service.dll
+C:\Mehedi Personal\Study  Material\PRACTICE\DailyExpenses\Service\obj\Debug\Service.pdb
+C:\Mehedi Personal\Study  Material\PRACTICE\DailyExpenses\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache

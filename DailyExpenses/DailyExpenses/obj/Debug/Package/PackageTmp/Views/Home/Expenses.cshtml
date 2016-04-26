@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Expenses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<script type="text/javascript">
+
+    $(document).on('change', '[name=months]', function () {
+        $.ajax({
+            type: "POST",
+            //url: "http://localhost:58630/Home/ExpensesByMonth",
+            url: "/Home/ExpensesByMonth?month=" + Number($("[name=months] option:selected").val()),
+            datatype: "application/json",
+            contentType: "text/plain",
+            //data: { "month": $("[name=months]").val() },
+            success: function (result) {
+
+                $("#tblExp").html("");
+                var html = " <tr><td><b>Date</b></td>"+"<td><b>Description</b></td>"+
+        '<td><b>Comments</b></td>'+
+        '<td><b>Amount</b></td>'+
+        "<td><b>Action</b></td>" + "</tr>";
+                var total = 0;
+                $.each(result, function (index, item) {
+                    total += item.amount;
+                    var date = new Date(parseInt(item.date.substr(6)));
+                    var date1 = date.getDay() + "/" + Number(date.getMonth()) + Number(1) + "/" + date.getFullYear();
+                    html += " <tr><td><b>" +  date + "</b></td>" + "<td><b>" + item.description + "</b></td>" +
+       "<td><b>" + item.comments + "</b></td>" +
+       "<td><b>" + item.amount + "</b></td>" +
+       "<td><b>" + "" + "</b></td>" + "</tr>";
+                });
+
+
+                html+= "<tr><td><b>Total</b></td><td></td><td></td>"+
+                "<td><b>"+ total +"</b></td><td></td></tr>";
+                $("#tblExp").append(html);
+
+            }
+        });
+    });
+    
+
+
+
+</script>
+<h2>Expenses</h2>
+<ul id="menu">
+  <li>  <select name="months" class="form-control">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">Decmber</option> </select>
+      </li>
+   
+    <li>@Html.ActionLink("Add Expenses", "AddExpense", "Home", new {@class="btn-primary" })</li>
+</ul>
+
+<table id="tblExp" style="border: 1px solid; width: 980px;">
+    <tr>
+
+        <td><b>Date</b></td>
+        <td><b>Description</b></td>
+        <td><b>Comments</b></td>
+        <td><b>Amount</b></td>
+        <td><b>Action</b></td>
+
+    </tr>
+    @{ 
+        decimal total = 0;
+        foreach (var test in Model)
+        { 
+        <tr>
+
+            <td>@test.date.ToString("dd/MM/yyyy")</td>
+            <td>@test.description</td>
+            <td>@test.comments</td>
+            <td>@test.amount</td>
+
+            <td><a href="@Url.Action("EditExpense", "Home", new { id = @test.id })">Edit</a><a href="@Url.Action("DeleteExpense", "Home", new { id = @test.id })">Delete</a></td>
+        </tr> 
+        
+            total = total + @test.amount;
+
+        }
+        <tr>
+            <td><b>Total</b></td>
+            <td></td>
+            <td></td>
+            <td><b>@total</b></td>
+            <td></td>
+        </tr>
+    }
+</table>
+

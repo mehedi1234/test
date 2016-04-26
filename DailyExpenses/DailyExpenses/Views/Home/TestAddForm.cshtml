@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "TestAddForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model DailyExpenses.Models.CustomerViewModel
+<h2>TestAddForm</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#proeed").on("click", function () {
+            alert(firstname != "");
+            var firstname = $("#FirstName").val();
+            var lastname = $("#LastName").val();
+            if (firstname != "" && lastname != "") {
+                $("#seconddiv").show();
+                $("#firstdiv").hide();
+
+            }
+            return false;
+        });
+
+        $("#submitform").on("click", function () {
+           // alert(firstname != "");
+            var Mpan = $("#Mpan").val();
+            var Mprn = $("#Mprn").val();
+            alert(Mpan);
+
+            if (Mpan != "" && Mprn != "") {
+                return true;
+            }
+            else {
+                $("#seconddiv").show();
+                $("#firstdiv").hide();
+                return false;
+            }
+
+        });
+
+    });
+</script>
+
+
+<section id="loginForm">
+    <h2>Use a local account to log in.</h2>
+    @using (Html.BeginForm("TestAddForm", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div id="firstdiv">
+            <fieldset>
+                <legend>Log in Form</legend>
+                <ol>
+                    <li>
+                        @Html.LabelFor(m => m.FirstName)
+                        @Html.TextBoxFor(m => m.FirstName)
+                        @Html.ValidationMessageFor(m => m.FirstName)
+                    </li>
+                    <li>
+                        @Html.LabelFor(m => m.LastName)
+                        @Html.TextBoxFor(m => m.LastName)
+                        @Html.ValidationMessageFor(m => m.LastName)
+                    </li>
+                    <li>
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email)
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </li>
+                    <li>
+                        @Html.LabelFor(m => m.Phone)
+                        @Html.TextBoxFor(m => m.Phone)
+                        @Html.ValidationMessageFor(m => m.Phone)
+                    </li>
+
+                </ol>
+                <input type="submit" name="proeed" id="proeed" value="Proceed" />
+            </fieldset>
+
+        </div>
+        <div id="seconddiv" style="display: none;">
+
+            <fieldset>
+                <legend>Log in Form</legend>
+                <ol>
+                    <li>
+                        @Html.LabelFor(m => m.Mpan)
+                        @Html.TextBoxFor(m => m.Mpan)
+                        @Html.ValidationMessageFor(m => m.Mpan)
+                    </li>
+                    <li>
+                        @Html.LabelFor(m => m.Mprn)
+                        @Html.TextBoxFor(m => m.Mprn)
+                        @Html.ValidationMessageFor(m => m.Mprn)
+                    </li>
+                    <li>
+                        @Html.LabelFor(m => m.Savings)
+                        @Html.TextBoxFor(m => m.Savings)
+                        @Html.ValidationMessageFor(m => m.Savings)
+                    </li>
+                    <li>
+                        @Html.LabelFor(m => m.GasSpendPrice)
+                        @Html.TextBoxFor(m => m.GasSpendPrice)
+                        @Html.ValidationMessageFor(m => m.GasSpendPrice)
+                    </li>
+
+                    <li>
+                        @Html.LabelFor(m => m.ElectricitySpendPrice)
+                        @Html.TextBoxFor(m => m.ElectricitySpendPrice)
+                        @Html.ValidationMessageFor(m => m.ElectricitySpendPrice)
+                    </li>
+
+
+                </ol>
+                 <p>
+               @* @Html.ActionLink("Submit", "TestAddForm", "Home", new { @id = "submitform" })*@
+
+                     <input type="submit" value="Submit" id="submitform" />
+            </p>
+            </fieldset>
+           
+        </div>
+   
+    }
+</section>

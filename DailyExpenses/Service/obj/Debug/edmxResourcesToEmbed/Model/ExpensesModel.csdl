@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExpensesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ExpensesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="ExpensesModel.Employee" />
+    <EntitySet Name="tblDaiilyExpenses" EntityType="ExpensesModel.tblDaiilyExpense" />
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Salary" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblDaiilyExpense">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="amount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="comments" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+</Schema>

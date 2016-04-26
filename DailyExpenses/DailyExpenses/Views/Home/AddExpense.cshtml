@@ -1,0 +1,30 @@
+﻿@model DailyExpenses.Models.ExpenseViewModel
+@{
+    ViewBag.Title = "AddExpense";
+}
+
+<h2 style="text-align:center;">Add Daily Expenses</h2>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="~/Scripts/Custom/addExpense.js"></script>
+ <script type="text/javascript">
+   
+     
+               </script>
+<style>
+    .exp-textbox {
+       border-color: #212121;
+    }
+</style>
+
+@using(Html.BeginForm("AddExpense","Home",FormMethod.Post))
+{
+<table>
+    <tr><td>Amount</td><td>@Html.TextBoxFor(x => x.Amount, new { @class="exp-textbox"})</td></tr>
+    <tr><td>Date</td><td>@Html.TextBoxFor(x => x.Date, new {@id="datepicker",@class="exp-textbox" })</td></tr>
+    <tr><td>Description</td><td>@Html.TextAreaFor(x=>x.Description,new { @class="exp-textbox"})</td></tr>
+    <tr><td>Commments</td><td>@Html.TextAreaFor(x=>x.Comments,new { @class="exp-textbox"})</td></tr>
+    <tr><td></td><td><input type="submit" name="Submit" value="Submit" /></td></tr>
+</table>
+}
